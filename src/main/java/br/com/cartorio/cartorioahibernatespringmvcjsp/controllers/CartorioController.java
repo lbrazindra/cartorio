@@ -60,5 +60,10 @@ public class CartorioController {
     public String cartorioEditado(@ModelAttribute("cartorio") Cartorio cartorio){    
 		cartorioRepository.save(cartorio);
         return "redirect:/lista";    
-    }  
+    } 
+
+	@RequestMapping(value="/home",method = RequestMethod.GET)    
+	public String home(){    
+		return "home";    
+	}  
 }
