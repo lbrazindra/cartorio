@@ -31,7 +31,7 @@ public class CartorioaHibernateSpringmvcJspApplication extends SpringBootServlet
 	public void run(String... args) throws Exception {
 		Cartorio cartorio1 = new Cartorio("Primeiro Cartorio");
 		Cartorio cartorio2 = new Cartorio("Segundo Cartorio");
-		Cartorio cartorio3 = new Cartorio("Terceuro Cartorio");
+		Cartorio cartorio3 = new Cartorio("Terceiro Cartorio");
 		
 		cartorioRepository.saveAll(Arrays.asList(cartorio1, cartorio2, cartorio3));
 	}
