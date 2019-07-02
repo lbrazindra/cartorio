@@ -14,6 +14,7 @@
 		<header>
 			<h1>Cartorio</h1>
 		</header>
+		
 		<div class="starter-template">
 			<h1>Listagem de cartórios</h1>
 			<table
@@ -34,6 +35,8 @@
 				</form:form>
 			</table>
 		</div>
+		
+		<c:out value="${message}"></c:out>
 
 	</div>
 

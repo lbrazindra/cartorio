@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.cartorio.cartorioahibernatespringmvcjsp.domains.Cartorio;
 import br.com.cartorio.cartorioahibernatespringmvcjsp.repository.CartorioRepository;
@@ -26,9 +27,10 @@ public class CartorioController {
 	}
 
 	@RequestMapping(value = "/cadastra", method = RequestMethod.POST)
-	public String cadastra(@ModelAttribute Cartorio cartorio) {
+	public String cadastra(@ModelAttribute Cartorio cartorio, RedirectAttributes redirect) {
 		cartorioRepository.save(cartorio);
-		return "sucesso";
+		redirect.addFlashAttribute("message", "Cartorio salvo com sucesso!");
+		return "redirect:/lista";
 	}
 
 	@RequestMapping(value = "/cadastra", method = RequestMethod.GET)
@@ -38,10 +40,11 @@ public class CartorioController {
 	}
 
 	@RequestMapping(value = "/deletarCartorio/{id}")
-	public String deletarCartorio(@PathVariable int id, Model model) {
+	public String deletarCartorio(@PathVariable int id, Model model, RedirectAttributes redirect) {
 		Optional<Cartorio> cartorioOptional = cartorioRepository.findById(id);
 		if (cartorioOptional.isPresent()) {
 			cartorioRepository.delete(cartorioOptional.get());
+			redirect.addFlashAttribute("message", "Cartorio deletado com sucesso!");
 		}
 		return "redirect:/lista";
 	}
@@ -57,12 +60,13 @@ public class CartorioController {
 	}
 	
 	@RequestMapping(value="/cartorioEditado",method = RequestMethod.POST)    
-    public String cartorioEditado(@ModelAttribute("cartorio") Cartorio cartorio){    
+    public String cartorioEditado(@ModelAttribute("cartorio") Cartorio cartorio, RedirectAttributes redirect){    
 		cartorioRepository.save(cartorio);
+		redirect.addFlashAttribute("message", "Cartorio editado e salvo com sucesso!");
         return "redirect:/lista";    
     } 
 
-	@RequestMapping(value="/home",method = RequestMethod.GET)    
+	@RequestMapping(value="/",method = RequestMethod.GET)    
 	public String home(){    
 		return "home";    
 	}  
