@@ -59,6 +59,16 @@ public class CartorioController {
 		return "redirect:/lista";
 	}
 	
+	@RequestMapping(value = "/visualizarCartorio/{id}")
+	public String visualizarCartorio(@PathVariable int id, Model model) {
+		Optional<Cartorio> cartorioOptional = cartorioRepository.findById(id);
+		if (cartorioOptional.isPresent()) {
+			model.addAttribute("cartorio", cartorioOptional.get());
+			return "cartorioVisualizar";
+		}
+		return "redirect:/lista";
+	}
+	
 	@RequestMapping(value="/cartorioEditado",method = RequestMethod.POST)    
     public String cartorioEditado(@ModelAttribute("cartorio") Cartorio cartorio, RedirectAttributes redirect){    
 		cartorioRepository.save(cartorio);

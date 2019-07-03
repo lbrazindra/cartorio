@@ -25,16 +25,16 @@
 			<table
 				class="table table-striped table-hover table-condensed table-bordered">
 				<tr>
-					<th>Id</th>
-					<th>Name</th>
+					<th></th>	
+					<th>Nome do cartório</th>
 				</tr>
 				<form:form method="DELETE" action="deletar">
 					<c:forEach var="cartorio" items="${cartorios}">
 						<tr>
-							<td>${cartorio.id}</td>
+							<td><a href="visualizarCartorio/${cartorio.id}">[Visualizar]</td>
 							<td>${cartorio.name}</td>
-							<td><a href="editarCartorio/${cartorio.id}">Editar cartório...</a></td>
-							<td><a href="deletarCartorio/${cartorio.id}">Excluir cartório...</a></td>
+							<td><a href="editarCartorio/${cartorio.id}">[Editar]</a></td>
+							<td><a href="deletarCartorio/${cartorio.id}">[Excluir]</a></td>
 						</tr>
 					</c:forEach>
 				</form:form>

@@ -6,7 +6,7 @@
 
 	<table>
 		<tr>
-			<td>Name:</td>
+			<td>Nome:</td>
 			<td><form:input path="name" /></td>
 		</tr>
 		<tr>
