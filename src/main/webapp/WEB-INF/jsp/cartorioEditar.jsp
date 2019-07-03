@@ -1,8 +1,10 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<h1>Edit Employee</h1>
-<form:form method="POST" action="/cartorioEditado" modelAttribute="cartorio">
+<h2>Editar Cartorio</h2>
+<form:form method="POST" action="/cartorioEditado"
+	modelAttribute="cartorio">
+
 	<table>
 		<tr>
 			<td></td>

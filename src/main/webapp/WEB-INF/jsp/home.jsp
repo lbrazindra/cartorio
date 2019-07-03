@@ -7,9 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+	<h1>Bem vindo ao site de Cartorios.</h1>
 	<input type="submit" value="Novo Cartorio"
     onclick="window.location='cadastra';" />
-    <br>
+    <p>
     <input type="submit" value="Listar todos os cartorios"
     onclick="window.location='lista';" />
 </body>

@@ -12,11 +12,16 @@
 <body>
 	<div class="container">
 		<header>
-			<h1>Cartorio</h1>
+			<h2>Cartorios</h2>
 		</header>
+
+		<p> <input type="submit" value="Home"
+			onclick="window.location='home';" /> 
+		<p>
+		<p>
 		
 		<div class="starter-template">
-			<h1>Listagem de cartórios</h1>
+			<h2>Listagem de cartórios</h2>
 			<table
 				class="table table-striped table-hover table-condensed table-bordered">
 				<tr>
@@ -28,8 +33,8 @@
 						<tr>
 							<td>${cartorio.id}</td>
 							<td>${cartorio.name}</td>
-							<td><a href="editarCartorio/${cartorio.id}">Edit</a></td>
-							<td><a href="deletarCartorio/${cartorio.id}">Delete</a></td>
+							<td><a href="editarCartorio/${cartorio.id}">Editar cartório...</a></td>
+							<td><a href="deletarCartorio/${cartorio.id}">Excluir cartório...</a></td>
 						</tr>
 					</c:forEach>
 				</form:form>

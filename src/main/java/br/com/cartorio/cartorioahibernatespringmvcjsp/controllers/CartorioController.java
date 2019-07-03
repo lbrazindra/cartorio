@@ -66,7 +66,7 @@ public class CartorioController {
         return "redirect:/lista";    
     } 
 
-	@RequestMapping(value="/",method = RequestMethod.GET)    
+	@RequestMapping(value="/home",method = RequestMethod.GET)    
 	public String home(){    
 		return "home";    
 	}  
