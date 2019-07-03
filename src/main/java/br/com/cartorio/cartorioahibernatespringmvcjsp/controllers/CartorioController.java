@@ -28,6 +28,10 @@ public class CartorioController {
 
 	@RequestMapping(value = "/cadastra", method = RequestMethod.POST)
 	public String cadastra(@ModelAttribute Cartorio cartorio, RedirectAttributes redirect) {
+		if(cartorio.getName().isEmpty() || cartorio.getName().length() < 5) {
+			redirect.addFlashAttribute("falha", "Cartorio não pode ter o nome vazio nem menor que 5 digitos, salve novamente!");
+			return "redirect:/home";
+		}
 		cartorioRepository.save(cartorio);
 		redirect.addFlashAttribute("message", "Cartorio salvo com sucesso!");
 		return "redirect:/lista";
@@ -70,7 +74,11 @@ public class CartorioController {
 	}
 	
 	@RequestMapping(value="/cartorioEditado",method = RequestMethod.POST)    
-    public String cartorioEditado(@ModelAttribute("cartorio") Cartorio cartorio, RedirectAttributes redirect){    
+    public String cartorioEditado(@ModelAttribute("cartorio") Cartorio cartorio, RedirectAttributes redirect){
+		if(cartorio.getName().isEmpty() || cartorio.getName().length() < 5) {
+			redirect.addFlashAttribute("falha", "Cartorio não atualizado, não pode ter o nome vazio nem menor que 5 digitos, atualize novamente!");
+			return "redirect:/home";
+		}
 		cartorioRepository.save(cartorio);
 		redirect.addFlashAttribute("message", "Cartorio editado e salvo com sucesso!");
         return "redirect:/lista";    

@@ -40,7 +40,7 @@
 				</form:form>
 			</table>
 		</div>
-		
+		<p>
 		<c:out value="${message}"></c:out>
 
 	</div>
